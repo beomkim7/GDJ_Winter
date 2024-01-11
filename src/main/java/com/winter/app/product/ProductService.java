@@ -5,25 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.winter.app.util.Pager;
+
 
 @Service
 public class ProductService {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	public List<ProductDTO> getList() throws Exception {
-		return this.productDAO.getList();
+	public int add(ProductDTO productDTO)throws Exception{
+		return productDAO.add(productDTO);
 	}
-	public ProductDTO getDetail(ProductDTO productDTO) throws Exception{
-		return this.productDAO.getDetail(productDTO);
+	
+	public List<ProductDTO> getList(Pager pager)throws Exception{
+		pager.makeRow();
+		Long totalCount = productDAO.getTotal(pager);
+		System.out.println(totalCount);
+		
+		pager.makeNum(totalCount);
+		List<ProductDTO> ar = productDAO.getList(pager);
+		
+		return ar;
 	}
-	public int add(ProductDTO productDTO) throws Exception {
-		return this.productDAO.add(productDTO);
-	}
-	public int update(ProductDTO productDTO) throws Exception {
-		return this.productDAO.update(productDTO);
-	}
-	public int delete(ProductDTO productDTO) throws Exception{
-		return this.productDAO.delete(productDTO);
-	}
+
+	
 }
