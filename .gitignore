@@ -14,6 +14,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
+*.properties
 .idea
 *.iws
 *.iml
@@ -141,3 +142,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,java,maven
+src
+src
+src
