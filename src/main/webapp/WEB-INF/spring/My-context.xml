@@ -10,10 +10,10 @@
 
 	<!--   Database에 로그인 후 연결객체를 관리하는 클래스의 객체 생성-->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-		<property name="username" value="${oracle.username}"></property>
-		<property name="password" value="${oracle.password}"></property>
-		<property name="url" value="${oracle.url}"></property>
-		<property name="driverClassName" value="${oracle.driver}"></property>
+		<property name="username" value="${user03}"></property>
+		<property name="password" value="${user03}"></property>
+		<property name="url" value="${jdbc:oracle:thin:@15.164.99.134:1521:xe}"></property>
+		<property name="driverClassName" value="${oracle.jdbc.driver.OracleDriver}"></property>
 	</bean>
 	
 	<!--  Connection, sql문이 있는 xml파일의 위치, config 파일의 위치를 알려줌 --> 
