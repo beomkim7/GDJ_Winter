@@ -4,4 +4,12 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 
-<configuration></configuration>
+<configuration>
+	 <typeAliases>
+	 	<typeAlias type="com.winter.app.product.ProductDTO" alias="ProductDTO"/>
+	 	<typeAlias type="com.winter.app.util.Pager" alias="Pager"/>
+	 	
+	 	<typeAlias type="java.lang.string" alias="String"/>
+	 	<typeAlias type="java.lang.Long" alias="long"/>
+	 </typeAliases>
+</configuration>
