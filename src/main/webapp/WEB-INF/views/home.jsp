@@ -10,7 +10,7 @@
         <meta name="author" content="" />
         <title>Personal - Start Bootstrap Theme</title>
         <!-- Favicon-->
-       <c:import url="./temps/head_css.jsp"></c:import>
+        <c:import url="./temps/head_css.jsp"></c:import>
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
