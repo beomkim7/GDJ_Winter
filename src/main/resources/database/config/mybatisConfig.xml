@@ -6,10 +6,8 @@
 
 <configuration>
 	 <typeAliases>
-	 	<typeAlias type="com.winter.app.product.ProductDTO" alias="ProductDTO"/>
 	 	<typeAlias type="com.winter.app.util.Pager" alias="Pager"/>
-	 	
-	 	<typeAlias type="java.lang.string" alias="String"/>
-	 	<typeAlias type="java.lang.Long" alias="long"/>
+	 	<typeAlias type="com.winter.app.board.qna.QnaDTO" alias="QnaDTO"/>
+
 	 </typeAliases>
 </configuration>

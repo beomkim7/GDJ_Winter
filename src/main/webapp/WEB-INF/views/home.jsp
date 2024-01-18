@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,13 +9,12 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Personal - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <c:import url="./temps/head_css.jsp"></c:import>
+	<c:import url="./temps/head_css.jsp"></c:import>
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <c:import url="./temps/header.jsp"></c:import>
+			<c:import url="./temps/header.jsp"></c:import>
             <!-- Header-->
             <header class="py-5">
                 <div class="container px-5 pb-5">
@@ -177,10 +176,9 @@
                 </div>
             </section>
         </main>
-		<c:import url="./temps/footer.jsp"></c:import>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="/resources/js/scripts.js"></script>
+        <!-- Footer-->
+        <c:import url="./temps/footer.jsp"></c:import>
+
     </body>
 </html>
+    

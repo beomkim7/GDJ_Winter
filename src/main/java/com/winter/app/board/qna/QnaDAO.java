@@ -26,7 +26,7 @@ public class QnaDAO implements BoardDAO {
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(namespace+"getList", pager);
 	}
 
 	@Override

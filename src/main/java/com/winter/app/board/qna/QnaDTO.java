@@ -1,6 +1,8 @@
 package com.winter.app.board.qna;
 
-public class QnaDTO {
+import com.winter.app.board.BoardDTO;
+
+public class QnaDTO extends BoardDTO {
 	private Long boardRef;
 	private Long boardStep;
 	private Long boardDepth;

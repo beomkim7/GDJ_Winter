@@ -16,8 +16,9 @@ public class QnaService implements BoardService {
 
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		pager.makeRow();
+		return qnaDAO.getList(pager);
 	}
 
 	@Override
