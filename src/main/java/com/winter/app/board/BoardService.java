@@ -13,7 +13,7 @@ public interface BoardService {
 	//getDetail
 	public BoardDTO getDetail(BoardDTO boardDTO)throws Exception;
 	//getAdd
-	public int getAdd(BoardDTO boardDTO)throws Exception;
+	public int setAdd(BoardDTO boardDTO)throws Exception;
 	//getUpdate
 	public int getUpdate(BoardDTO boardDTO)throws Exception;
 	//getDelete

@@ -19,9 +19,55 @@ public class Pager {
 	private String search;
 	private String kind;
 	
+	
 	public void makeRow() {
 		this.lastRow=this.getPage()*this.getPerPage();
-		this.startRow=this.lastRow-this.getPerPage()+1;
+		this.startRow=(this.getPage()-1)*this.getPerPage()+1;
+	}
+	
+	public void makeNum(Long totalCount) {
+		if(totalCount<1) {
+			totalCount=1L;
+		}
+		
+		Long totalpage = 0L;
+		totalPage = totalCount/this.getPerPage();
+		if(totalCount%this.getPerPage() !=0) {
+			totalpage++;
+		}
+		
+		this.setTotalPage(totalpage);
+		
+		
+		Long totalblock = 0L;
+		Long perblock = 5L;
+		totalblock= totalpage/perblock;
+		if(totalpage%perblock !=0) {
+			totalblock++;
+		}
+		
+		Long curblock = 0L;
+		curblock = this.getPage()/perblock;
+		if(this.getPage()%perblock !=0) {
+			curblock++;
+		}
+		
+		Long startNum=0L;
+		Long LastNum=curblock*perblock;
+		startNum=LastNum-perblock+1;
+		
+		this.setStartNum(startNum);
+		this.setLastNum(LastNum);
+		
+		if(curblock==0) {
+			this.setStart(true);
+		}
+		
+		if(curblock==totalblock) {
+			this.setLastNum(totalPage);
+			this.setLast(true);
+			
+		}
 	}
 	
 	public String getSearch() {
@@ -44,46 +90,7 @@ public class Pager {
 		this.kind = kind;
 	}
 
-	public void makeNum(Long totalCount) {
-		Long totalpage = 0L;
-		totalPage = totalCount/this.getTotalPage();
-		if(totalCount%this.getTotalPage() !=0) {
-			totalpage++;
-		}
-		
-		this.setTotalPage(totalpage);
-		
-		
-		Long totalblock = 0L;
-		Long perblock = 5L;
-		totalblock= totalpage/perblock;
-		if(totalpage%perblock !=0) {
-			totalblock++;
-		}
-		
-		Long curblock = 0L;
-		curblock = this.getPage()/perblock;
-		if(this.getPage()/perblock !=0) {
-			curblock++;
-		}
-		
-		Long startNum=0L;
-		Long LastNum=curblock*perblock;
-		startNum=lastNum-perblock+1;
-		
-		this.setStart(start);
-		this.setLastNum(LastNum);
-		
-		if(curblock==1) {
-			this.setStart(true);
-		}
-		
-		if(curblock==totalblock) {
-			this.setLastNum(totalPage);
-			this.setLast(true);
-			
-		}
-	}
+	
 	
 	
 	public Long getStartRow() {
@@ -120,6 +127,9 @@ public class Pager {
 		this.totalPage = totalPage;
 	}
 	public Long getStartNum() {
+		if(startNum==0) {
+			startNum=1L;
+		}
 		return startNum;
 	}
 	public void setStartNum(Long startNum) {
