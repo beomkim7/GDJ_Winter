@@ -27,6 +27,27 @@ public class QnaController {
 		return "qna";
 	}
 	
+	@PostMapping("delete")
+	public String setDelete(QnaDTO boardDTO)throws Exception{
+		boardDTO.setFlag(1);
+		int result = qnaService.setDelete(boardDTO);
+		
+		return "redirect:./list";
+	}
+	
+	@GetMapping("update")
+	public String setUpdate(BoardDTO boardDTO,Model model)throws Exception{
+		boardDTO=qnaService.getDetail(boardDTO);
+		model.addAttribute("boardDTO", boardDTO);
+		return "board/update";
+	}
+	
+	@PostMapping("update")
+	public String setUpdate(BoardDTO boardDTO,MultipartFile [] attachs)throws Exception{
+		int result = qnaService.setUpdate(boardDTO,attachs);
+		return "redirect:./list";
+	}
+	
 	@GetMapping("add")
 	public String setAdd() throws Exception{
 		return "board/add";

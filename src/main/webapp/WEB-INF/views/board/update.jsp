@@ -23,10 +23,15 @@
 		<section class="py-5"></section>
 		<div class="text-center mb-5">
 			<h1 class="display-5 fw-bolder mb-0">
-				<span class="text-gradient d-inline">${board}Add</span>
+				<span class="text-gradient d-inline">${board} Update</span>
 			</h1>
 		</div>
-		<form action="./add" method="post" enctype="multipart/form-data">
+		<form action="./update" method="post" enctype="multipart/form-data">
+			
+			<div class="mb-3">
+				<input type="hidden" name="boardNum" value="${boardDTO.boardNum}">
+			</div>
+			
 			<div class="mb-3">
 				<label for="title" class="form-label">Title</label> <input
 					type="text" class="form-control" id="title" name="boardTitle">
@@ -45,7 +50,7 @@
 				<input class="form-control" multiple type="file" name="attachs">
 				<input class="form-control" type="file" accept="image/*" name="attachs">
 			</div>
-			<button type="submit" class="btn btn-primary">추가하기</button>
+			<button type="submit" class="btn btn-primary">등록</button>
 		</form>
 	</main>
 	<!--footer-->

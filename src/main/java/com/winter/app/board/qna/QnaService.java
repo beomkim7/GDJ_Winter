@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.winter.app.board.BoardDTO;
 import com.winter.app.board.BoardFileDTO;
 import com.winter.app.board.BoardService;
-import com.winter.app.files.FileManager;
+import com.winter.app.util.FileManager;
 import com.winter.app.util.Pager;
 
 @Service
@@ -19,7 +19,7 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaDAO qnaDAO;
 	@Autowired
-	private com.winter.app.util.FileManager fileManager;
+	private FileManager fileManager;
 	@Autowired
 	private ServletContext servletContext;
 	
@@ -48,6 +48,9 @@ public class QnaService implements BoardService {
 		
 		for(MultipartFile f:attachs) {
 			
+			if(f.isEmpty()) {
+				continue;
+			}
 			String fileName = fileManager.fileSave(path, f);
 			
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
@@ -61,15 +64,23 @@ public class QnaService implements BoardService {
 	}
 
 	@Override
-	public int getUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int setUpdate(BoardDTO boardDTO,MultipartFile [] attachs) throws Exception {
+		
+		return qnaDAO.setUpdate(boardDTO);
 	}
 
 	@Override
-	public int getDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		List<BoardFileDTO> files = qnaDAO.getFileList(boardDTO);
+		String Path = servletContext.getRealPath("/resources/upload/qna");
+		for(BoardFileDTO b:files) {
+			fileManager.fileDelete(Path, b.getFileName());
+		}
+		
+		int result = qnaDAO.setFileDelete(boardDTO);
+		
+		result = qnaDAO.setDelete(boardDTO);
+		return result;
 	}
 
 }

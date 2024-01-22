@@ -40,7 +40,11 @@
                                     </div>
                                 </div>
                             </div>
-
+							<a id="update" class="btn btn-danger" href="#">update</a>
+							<a id="delete" class="btn btn-primary" href="#">delete</a>
+							<form id="frm" action="./update" method="get">
+								<input type="hidden" name="boardNum" value="${boardDTO.boardNum}">
+							</form>
                         </div>
                     </div>
                 </div>
