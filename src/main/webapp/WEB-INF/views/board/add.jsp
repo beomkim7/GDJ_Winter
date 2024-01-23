@@ -26,27 +26,8 @@
 				<span class="text-gradient d-inline">${board}Add</span>
 			</h1>
 		</div>
-		<form action="./add" method="post" enctype="multipart/form-data">
-			<div class="mb-3">
-				<label for="title" class="form-label">Title</label> <input
-					type="text" class="form-control" id="title" name="boardTitle">
-			</div>
-			<div class="mb-3">
-				<label for="Writer" class="form-label">Writer</label> <input
-					type="text" class="form-control" id="Writer" name="boardWriter">
-			</div>
-			<div class="mb-3">
-				<label class="form-label" for="Contents">Contents</label> 
-				<textarea class="form-control" id="Contents" rows="3" name="boardContents"></textarea>
-			</div>
 
-			<div class="mb-3">
-				<input class="form-control" type="file" accept="image/*" name="attachs">
-				<input class="form-control" multiple type="file" name="attachs">
-				<input class="form-control" type="file" accept="image/*" name="attachs">
-			</div>
-			<button type="submit" class="btn btn-primary">추가하기</button>
-		</form>
+	<c:import url="../temps/boardForm.jsp"></c:import>
 	</main>
 	<!--footer-->
 	<!-- 사용전 경로를 꼭 수정하세요-->

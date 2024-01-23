@@ -32,7 +32,7 @@
 	
 	<!-- delete -->
 	<update id="setDelete" parameterType="QnaDTO">
-		UPDATE QNA SET 	FLAG=#{flag}
+		UPDATE QNA SET FLAG=#{flag}
 		WHERE BOARDNUM=#{boardNum}
 	</update>
 	
