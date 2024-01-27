@@ -102,21 +102,21 @@
 						<div>
 							<nav aria-label="Page navigation example">
 								<ul class="pagination">
-									<c:if test="${!Pager.start}">
+									<c:if test="${!pager.start}">
 										<li class="page-item"><a class="page-link"
-											href="./list?page=${Pager.startNum-1}&search=${Pager.search}&kind=${Pager.kind}"
+											href="./list?page=${pager.startNum-1}&search=${pager.search}&kind=${pager.kind}"
 											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										</a></li>
 									</c:if>
-									<c:forEach begin="${Pager.startNum}" end="${Pager.lastNum }"
+									<c:forEach begin="${pager.startNum}" end="${pager.lastNum }"
 										var="i">
 										<li class="page-item"><a class="page-link"
 											href="./list?page=${i}&search=${pager.search}&kind=${pager.kind}">${i}</a></li>
 
 									</c:forEach>
-									<c:if test="${!Pager.last}">
+									<c:if test="${!pager.last}">
 										<li class="page-item"><a class="page-link"
-											href="./list?page=${Pager.lastNum+1}&search=${Pager.search}&kidn=${Pager.kind}"
+											href="./list?page=${pager.lastNum+1}&search=${pager.search}&kind=${pager.kind}"
 											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										</a></li>
 									</c:if>

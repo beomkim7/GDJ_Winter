@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView;
 
 import com.winter.app.board.BoardDAO;
 import com.winter.app.board.BoardDTO;
@@ -59,5 +60,12 @@ public class QnaDAO implements BoardDAO {
 	}
 	public int setFileDelete(BoardDTO boardDTO)throws Exception{
 		return sqlSession.delete(namespace+"setFileDelete", boardDTO);
+	}
+	
+	public int setReplyAdd(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.insert(namespace+"setReplyAdd", qnaDTO);
+	}
+	public int setReplyUpdate(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.update(namespace+"setReplyUpdate", qnaDTO);
 	}
 }

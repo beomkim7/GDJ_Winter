@@ -22,6 +22,11 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@ModelAttribute("bbs")
+	public int getKind() {
+		return 1;
+	}
+	
 	@ModelAttribute("board")
 	public String getBoard() {
 		return "qna";
@@ -73,5 +78,16 @@ public class QnaController {
 		boardDTO = qnaService.getDetail(boardDTO);
 		model.addAttribute("boardDTO", boardDTO);
 		return "board/detail";
+	}
+	@GetMapping("reply")
+	public String setReply(BoardDTO boardDTO,Model model)throws Exception{
+		model.addAttribute("boardDTO", boardDTO);
+		
+		return "board/reply";
+	}
+	@PostMapping("reply")
+	public String setReply(QnaDTO qnaDTO,MultipartFile [] attachs,Model model)throws Exception{
+		int result = qnaService.setReply(qnaDTO,attachs);
+		return "redirect:./list";
 	}
 }

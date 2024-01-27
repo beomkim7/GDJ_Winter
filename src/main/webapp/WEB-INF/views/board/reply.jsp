@@ -17,12 +17,17 @@
         <main class="flex-shrink-0">
             <!-- navigator -->
             <!-- 사용전 경로를 꼭 수정하세요-->
-            <c:import url="../temps/temps/header.jsp"></c:import>
-           
-           
+            <c:import url="../temps/header.jsp"></c:import>
+            
+           <section class="py-5">
+           	<div class="text center mb-5">
+           	 <h1 class="display-5  fw-bolder mb-0"><span class="text-gradient d-inline">BoardReply</span></h1>
+           		<c:import url="../temps/boardForm.jsp"></c:import>
+       		</div>
+           </section>
         </main>
         <!--footer-->
         <!-- 사용전 경로를 꼭 수정하세요-->
-		<c:import url="../temps/temps/footer.jsp"></c:import>
+		<c:import url="../temps/footer.jsp"></c:import>
     </body>
 </html>

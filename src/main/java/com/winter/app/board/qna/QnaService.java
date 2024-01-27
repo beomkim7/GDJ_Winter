@@ -29,7 +29,7 @@ public class QnaService implements BoardService {
 		pager.makeRow();
 		Long totalcount=qnaDAO.getTotalCount(pager);
 		pager.makeNum(totalcount);
-		
+		System.out.println(pager.getStartNum());
 		return qnaDAO.getList(pager);
 	}
 
@@ -80,6 +80,34 @@ public class QnaService implements BoardService {
 		int result = qnaDAO.setFileDelete(boardDTO);
 		
 		result = qnaDAO.setDelete(boardDTO);
+		return result;
+	}
+	
+	public int setReply(QnaDTO qnaDTO,MultipartFile [] attachs)throws Exception{
+		QnaDTO parent =(QnaDTO)qnaDAO.getDetail(qnaDTO);
+		
+		qnaDTO.setBoardDepth(parent.getBoardDepth());
+		qnaDTO.setBoardRef(parent.getBoardRef());
+		qnaDTO.setBoardStep(parent.getBoardStep());
+		
+		int result=qnaDAO.setReplyUpdate(qnaDTO);
+		
+		result=qnaDAO.setReplyAdd(qnaDTO);
+		
+		String path = servletContext.getRealPath("/resources/upload/qna");
+		for(MultipartFile f : attachs) {
+			if(f.isEmpty()) {
+				continue;
+			}
+			String filename = fileManager.fileSave(path, f);
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			boardFileDTO.setFileName(filename);
+			boardFileDTO.setOriName(f.getOriginalFilename());
+			boardFileDTO.setBoardNum(qnaDTO.getBoardNum());
+			
+			result = qnaDAO.setFileAdd(boardFileDTO);
+		}
+		
 		return result;
 	}
 

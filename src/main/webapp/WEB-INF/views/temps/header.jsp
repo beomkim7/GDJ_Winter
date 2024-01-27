@@ -11,6 +11,7 @@
                             <li class="nav-item"><a class="nav-link" href="/product/list">Product</a></li>
                             <li class="nav-item"><a class="nav-link" href="/notice/list">Notice</a></li>
                             <li class="nav-item"><a class="nav-link" href="/qna/list">QnA</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/member/join">회원가입</a></li>
                         </ul>
                     </div>
                 </div>

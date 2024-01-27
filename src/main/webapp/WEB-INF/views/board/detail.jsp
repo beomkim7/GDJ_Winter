@@ -46,6 +46,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div>
+                            	<c:if test="${ bbs eq '1'}">
+                            		<a class="btn btn-primary" href="reply?boardNum=${boardDTO.boardNum}">답글</a>
+                            	</c:if>
+                            </div>
+                            
 							<a id="update" class="btn btn-danger" href="#">update</a>
 							<a id="delete" class="btn btn-primary" href="#">delete</a>
 							<form id="frm" action="./update" method="get">

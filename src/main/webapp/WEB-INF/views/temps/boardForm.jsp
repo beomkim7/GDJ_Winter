@@ -11,7 +11,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="Writer" class="form-label">Writer</label>
-					 	<input type="text" class="form-control" id="Writer" name="boardWriter" value="${boardDTO.boardWriter }">
+					 	<input type="text" class="form-control" id="Writer" name="boardWriter" value="${boardDTO.boardWriter}">
 					</div>
 					<div class="mb-3">
 						<label class="form-label" for="Contents">Contents</label> 
@@ -24,7 +24,7 @@
 						<input class="form-control" type="file" name="attachs">
 		
 					</div>
-					<button type="submit" class="btn btn-primary">추가하기</button>
+					<button class="btn btn-primary">추가하기</button>
 				</form>
 			</div>
 		</div>
